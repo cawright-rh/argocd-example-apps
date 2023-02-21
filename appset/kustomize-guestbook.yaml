@@ -24,3 +24,5 @@ spec:
       destination:
         server: '{{url}}'
         namespace: kustomize-guestbook
+      syncPolicy:
+        automated: {}

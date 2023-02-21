@@ -24,3 +24,5 @@ spec:
       destination:
         server: '{{url}}'
         namespace: blue-green
+      syncPolicy:
+        automated: {}
