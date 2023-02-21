@@ -1,0 +1,15 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: appofapps
+  namespace: argocd
+  finalizers:
+  - resources-finalizer.argocd.argoproj.io
+spec:
+  destination:
+    namespace: openshift-gitops
+  project: default
+  source:
+    path: appset
+    repoURL: https://github.com/cawright-rh/argocd-example-apps.git
+    targetRevision: HEAD

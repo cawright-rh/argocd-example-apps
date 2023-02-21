@@ -1,0 +1,29 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: guestbook-appset
+spec:
+  generators:
+  - list:
+      elements:
+        - cluster: in-cluster
+          url: https://kubernetes.default.svc
+          env: hub
+        - cluster: external-cluster
+          url: https://api.cluster-gnwjg.gnwjg.sandbox772.opentlc.com:6443
+          env: external
+    selector:
+      matchLabels:
+        env: '{{env}}'
+  template:
+    metadata:
+      name: '{{cluster}}-guestbook'
+    spec:
+      project: default
+      source:
+        repoURL: https://github.com/cawright-rh/argocd-example-apps.git
+        targetRevision: HEAD
+        path: guestbook
+      destination:
+        server: '{{url}}'
+        namespace: guestbook
