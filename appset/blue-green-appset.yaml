@@ -12,9 +12,6 @@ spec:
         - cluster: external-cluster
           url: https://api.cluster-gnwjg.gnwjg.sandbox772.opentlc.com:6443
           env: external
-    selector:
-      matchLabels:
-        env: '{{env}}'
   template:
     metadata:
       name: '{{cluster}}-blue-green'
