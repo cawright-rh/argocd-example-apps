@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
-  name: blue-green-appset
+  name: helm-dependency-appset
 spec:
   generators:
   - list:
@@ -14,16 +14,16 @@ spec:
           env: external
   template:
     metadata:
-      name: '{{cluster}}-blue-green'
+      name: '{{cluster}}-helm-dependency'
     spec:
       project: default
       source:
         repoURL: https://github.com/cawright-rh/argocd-example-apps.git
         targetRevision: HEAD
-        path: blue-green
+        path: helm-dependency
       destination:
         server: '{{url}}'
-        namespace: blue-green
+        namespace: helm-dependency
       syncPolicy:
         syncOptions:
           - CreateNamespace=true
