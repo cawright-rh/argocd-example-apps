@@ -24,6 +24,4 @@ spec:
       destination:
         server: '{{url}}'
         namespace: helm-dependency
-      syncPolicy:
-        syncOptions:
-          - CreateNamespace=true
+
