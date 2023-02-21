@@ -25,4 +25,5 @@ spec:
         server: '{{url}}'
         namespace: kustomize-guestbook
       syncPolicy:
-        automated: {}
+        syncOptions:
+          - CreateNamespace=true

@@ -25,4 +25,5 @@ spec:
         server: '{{url}}'
         namespace: guestbook
       syncPolicy:
-        automated: {}
+        syncOptions:
+          - CreateNamespace=true

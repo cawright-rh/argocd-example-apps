@@ -25,4 +25,5 @@ spec:
         server: '{{url}}'
         namespace: blue-green
       syncPolicy:
-        automated: {}
+        syncOptions:
+          - CreateNamespace=true
